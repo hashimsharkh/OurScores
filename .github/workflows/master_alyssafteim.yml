@@ -19,12 +19,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '3.1.102'
-        
-    - script: dotnet build OurScores/OurScores.csproj --configuration $(buildConfiguration)
-      displayName: 'dotnet build $(buildConfiguration)'
-
+    
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build OurScores/OurScores.csproj --configuration Release
 
     - name: dotnet publish
       run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
